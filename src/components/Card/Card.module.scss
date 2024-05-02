@@ -1,0 +1,23 @@
+@import "@/mixins";
+
+.card {
+	--width: var(--baseWidth);
+	--height: calc(var(--width) * 1.404);
+
+	@include dFlex(column, flex-start);
+	position: relative;
+	width: var(--width);
+	height: var(--height);
+	max-width: 1364px;
+	max-height: 1915px;
+	border: 1px solid gray;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: transform 200ms linear;
+
+	&.hoverEffect {
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}

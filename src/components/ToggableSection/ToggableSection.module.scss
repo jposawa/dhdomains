@@ -1,0 +1,37 @@
+@import "@/mixins.scss";
+
+.section {
+  @include dFlex(column, flex-start);
+  // border: 1px solid red;
+}
+
+.titleContainer {
+  @include dFlex(row, flex-start);
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  background: #d4ae04;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.titleMarker {
+  transition: transform 100ms linear;
+}
+
+.openMarker {
+  transform: rotate(90deg);
+}
+
+.content {
+  @include dFlex();
+  width: 100%;
+  max-height: 100vh;
+  transition: max-height 300ms linear;
+  overflow: auto;
+  background: #090f2155;
+}
+
+.closed {
+  max-height: 0;
+  overflow: hidden;
+}

@@ -1,0 +1,94 @@
+@import "@/mixins";
+
+.cardHeader {
+	--colorA: #fdc06e;
+	--colorB: #fff196;
+  --mainTextColor: var(--textColor, #eee);
+
+	@include dFlex(column, flex-start);
+	position: relative;
+	width: 100%;
+	height: calc(var(--height) * 0.49);
+	z-index: 10;
+  color: var(--mainTextColor);
+}
+
+.imgContainer {
+	@include dFlex();
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: gray;
+	z-index: 10;
+	overflow: hidden;
+
+	img {
+		object-fit: contain;
+		width: 100%;
+	}
+}
+
+.bannerContainer {
+	@include dFlex();
+	position: absolute;
+	height: 50%;
+	// width: 10rem;
+	top: -1%;
+	left: 3%;
+	z-index: 12;
+
+	span {
+		position: absolute;
+		font-size: clamp(8px, calc(var(--width) * 0.1), 24px);
+		// color: #eee;
+		margin-top: -40%;
+		font-weight: bold;
+	}
+}
+
+.banner {
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+.recallContainer {
+	--size: calc(var(--width) * 0.14);
+	position: absolute;
+	width: var(--size);
+	height: var(--size);
+	top: 1rem;
+	right: 1rem;
+	z-index: 12;
+	color: #eee;
+	font-size: clamp(8px, calc(var(--width) * 0.1), 24px);
+	background: #1e201f;
+	border: 3px solid #fcf379;
+  border-radius: 50%;
+}
+
+.innerCircle {
+  @include dFlex();
+	width: 100%;
+	height: 100%;
+  border-radius: 50%;
+  border: 3px solid #6c7073;
+	font-size: clamp(8px, calc(var(--width) * 0.055), 24px);
+  font-weight: bold;
+  gap: 0.1rem;
+}
+
+.bolt {
+  height: 70%;
+  width: clamp(8px, calc(var(--width) * 0.03), 24px);
+  background: #eee;
+  clip-path: polygon(
+    75% 0,
+    75% 50%,
+    100% 50%,
+    30% 100%,
+    30% 50%,
+    0% 50%
+  );
+}

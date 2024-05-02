@@ -1,0 +1,36 @@
+@import "@/mixins.scss";
+
+.newCardModal {
+  color: #222;
+}
+
+.btnContainer {
+	@include dFlex(row-reverse, flex-start);
+	width: 100%;
+	gap: 0.5rem;
+
+	button {
+		padding: 0.2rem 0.5rem;
+		border-radius: 7px;
+	}
+}
+
+.cardForm {
+	@include dFlex(column);
+	align-items: flex-start;
+	gap: 1rem;
+
+	> p {
+		width: 100%;
+	}
+}
+
+.description {
+	width: 100%;
+
+	textarea {
+		width: 100%;
+    height: 10rem;
+		resize: none;
+	}
+}

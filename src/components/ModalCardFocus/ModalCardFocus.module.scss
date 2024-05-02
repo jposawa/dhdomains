@@ -1,0 +1,25 @@
+@import "@/mixins.scss";
+
+.cardFocus {
+  background: transparent;
+}
+
+.toolContainer {
+  @include dFlex(row, flex-end);
+  position: absolute;
+  width: 100%;
+  padding: 0.5rem 0.1rem;
+  top: 100%;
+  left: 0;
+
+  button {
+    --size: 3rem;
+
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background: #4e2862;
+    color: #eee;
+  }
+}

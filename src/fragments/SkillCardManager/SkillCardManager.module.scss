@@ -1,0 +1,60 @@
+@import "@/mixins.scss";
+
+.title {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2% 0;
+}
+
+.cardsContainer {
+	@include dFlex();
+	margin-bottom: 2%;
+	flex-wrap: wrap;
+	gap: 2rem 20%;
+
+	ul {
+		padding-left: 10%;
+		li {
+			list-style: disc;
+		}
+	}
+}
+
+.filtersContainer {
+	@include dFlex(column, flex-start);
+	align-items: flex-start;
+	width: 100%;
+  gap: 0.5rem;
+
+	label {
+		width: 100%;
+	}
+}
+
+.domainFilter {
+	width: clamp(5rem, 45%, 20rem);
+
+  :global(.ant-select-selection-placeholder) {
+    color: #222;
+  }
+  
+	:global(.ant-select-selection-overflow-item) {
+		background: #258;
+		color: #eee;
+		margin-right: 0.2rem;
+		border-radius: 5px;
+
+		&:global(.ant-select-selection-overflow-item-suffix) {
+			background: transparent;
+		}
+
+		:global(.ant-select-selection-item-remove) {
+			color: #d4ae04;
+
+			&:hover {
+				color: #e1dbbd;
+			}
+		}
+	}
+}

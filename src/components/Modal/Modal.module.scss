@@ -1,0 +1,24 @@
+@import "@/mixins.scss";
+
+.modalContainer,
+.background {
+	@include absoluteElement();
+  position: fixed;
+}
+
+.modalContainer {
+  @include dFlex();
+  z-index: 150;
+}
+
+.background {
+	background: #000a;
+}
+
+.modalContent {
+  position: relative;
+  background: #ddd;
+  padding: 0.5rem;
+  border-radius: 5px;
+	z-index: 200;
+}

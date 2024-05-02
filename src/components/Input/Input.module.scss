@@ -1,0 +1,16 @@
+@import "@/mixins.scss";
+
+.label {
+	&:has(textarea) {
+		@include dFlex(column, flex-start);
+		align-items: flex-start;
+	}
+	.textarea {
+	}
+}
+
+.input {
+	&[type="number"] {
+		width: 2rem;
+	}
+}

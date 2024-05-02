@@ -1,0 +1,136 @@
+@import "@/mixins.scss";
+
+.dividerContainer,
+.cardDivider {
+	@include dFlex();
+}
+
+.dividerContainer {
+	--dividerHeight: calc(var(--height) * 0.055);
+
+	position: absolute;
+	width: 100%;
+	height: var(--dividerHeight);
+	bottom: calc(var(--dividerHeight) / -2);
+	font-size: 100%;
+}
+
+.divider {
+	position: absolute;
+	width: 100%;
+	height: 71%;
+	bottom: 0;
+	background: linear-gradient(
+		to left,
+		var(--colorA) 10%,
+		var(--colorB) 20% 80%,
+		var(--colorA) 90%
+	);
+	z-index: 10;
+	clip-path: polygon(
+		0% 0%,
+		100% 0%,
+		100% 80%,
+		87% 80%,
+		82% 35%,
+		75% 35%,
+		69% 35%,
+		66% 80%,
+		61% 80%,
+		59% 100%,
+		41% 100%,
+    39% 80%,
+    34% 80%,
+    31% 35%,
+    25% 35%,
+		18% 35%,
+		13% 80%,
+		0% 80%
+	);
+}
+
+.cardType {
+  @include dFlex();
+  position: relative;
+  width: 50%;
+  // color: #eee;
+
+  img {
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+  }
+
+  b {
+    z-index: 15;
+    font-size: clamp(8px, calc(var(--width) * 0.05), 48px);
+  }
+}
+
+.typeBox {
+  transform: scaleX(0.88);
+  margin-top: -1%;
+}
+
+// .cardType {
+// 	--borderY: 0.7rem solid var(--colorB);
+
+// 	@include dFlex();
+// 	position: absolute;
+// 	width: 35%;
+// 	height: 100%;
+// 	padding: 0.8em 0;
+// 	color: white;
+// 	background: #850ebf;
+// 	border-top: var(--borderY);
+// 	border-bottom: var(--borderY);
+// 	border-radius: 20px;
+// 	font-size: clamp(8px, 100%, 24px);
+// 	z-index: 15;
+// 	box-shadow: 0rem 0.4rem 0.4rem #0005 inset;
+// 	font-weight: bold;
+// 	clip-path: polygon(
+// 		10% 28%,
+// 		22% 0,
+// 		78% 0,
+// 		80% 28%,
+// 		100% 50%,
+// 		93% 72%,
+// 		80% 72%,
+// 		65% 100%,
+// 		35% 100%,
+// 		20% 72%,
+// 		7% 72%,
+// 		0 50%
+// 	);
+// 	// background: linear-gradient(
+// 	// 	to left,
+// 	// 	var(--colorA),
+// 	// 	var(--colorB) 50%,
+// 	// 	var(--colorA)
+// 	// );
+// }
+
+// .cardBase {
+//   width: 100%;
+// }
+
+// .detailTop {
+// 	position: absolute;
+// 	bottom: 74%;
+// 	left: calc(var(--baseWidth) * 0.29);
+// 	width: 5rem;
+// 	height: 100%;
+// 	background: transparent;
+// 	border-right: 15px solid var(--colorB);
+// 	border-radius: 40px;
+// 	clip-path: polygon(0 24%, 50% 75%, 100% 0%, 100% 100%, 0 100%);
+// 	z-index: 20;
+// 	transform: rotate(65deg) scaleX(1.14) scaleY(2);
+
+// 	&.topRight {
+// 		right: 30.8%;
+// 		left: auto;
+// 		transform: rotateZ(-65deg) rotateY(180deg) scaleX(1.14) scaleY(2);
+// 	}
+// }

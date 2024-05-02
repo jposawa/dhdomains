@@ -1,0 +1,8 @@
+@import "@/mixins.scss";
+
+.addBtn {
+  @include dFlex();
+  background: #feca6e;
+  padding: 0.2rem 0.5rem;
+  border-radius: 7px;
+}
