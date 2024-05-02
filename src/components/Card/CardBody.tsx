@@ -65,9 +65,7 @@ export const CardBody: React.FC<CardBodyProps> = ({
 			return "";
 		}
 
-		const formatted = card.description
-			.replace(/\*([^*]+)\*/g, "<b>$1</b>")
-			.replace(/_([^*]+)_/g, "<i>$1</i>");
+		const formatted = card.description.replace(/\*([^*]+)\*/g, "<b>$1</b>");
 
 		return formatted;
 	}, [card]);

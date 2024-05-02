@@ -1,9 +1,9 @@
 import { CardHeader, CardBody } from "./";
 import { SkillCard } from "@/shared/types";
-
-import styles from "./Card.module.scss";
 import { useSetRecoilState } from "recoil";
 import { selectedSkillCardState } from "@/shared/state";
+
+import styles from "./Card.module.scss";
 
 export type CardProps = {
 	card: SkillCard;

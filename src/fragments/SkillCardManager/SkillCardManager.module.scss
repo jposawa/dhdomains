@@ -17,6 +17,7 @@
 		padding-left: 10%;
 		li {
 			list-style: disc;
+      font-style: italic;
 		}
 	}
 }
@@ -38,7 +39,7 @@
   :global(.ant-select-selection-placeholder) {
     color: #222;
   }
-  
+
 	:global(.ant-select-selection-overflow-item) {
 		background: #258;
 		color: #eee;

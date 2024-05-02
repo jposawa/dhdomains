@@ -104,7 +104,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "ARCANA-9-1",
 		title: "Earthquake",
 		description:
-			"Make a *Spellcast Roll (16)*. Once per *short rest*, on a success all creatures within *very far range* of your choice must make a *Reaction Roll (18)*. On a failure, they take *3d10* _physical damage_ and are *Vulnerable*. On a success, they take half damage (rounded up).\n\nWhen you successfully cast this spell, all terrain within *very far range* of you becomes *difficult* to move through, and structures within this range may sustain damage or crumble.",
+			"Make a *Spellcast Roll (16)*. Once per *short rest*, on a success all creatures within *very far range* of your choice must make a *Reaction Roll (18)*. On a failure, they take *3d10* <i>physical damage</i> and are *Vulnerable*. On a success, they take half damage (rounded up).\n\nWhen you successfully cast this spell, all terrain within *very far range* of you becomes *difficult* to move through, and structures within this range may sustain damage or crumble.",
 		type: CardType.Spell,
 		recall: 2,
 		domain: Domain.Arcana,
@@ -280,7 +280,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "BLADE-2-2",
 		title: "Reckless",
 		description:
-			"You may always mark a *Stress* to take _advantage_ on an *Attack Roll* against a target.",
+			"You may always mark a *Stress* to take <i>advantage</i> on an *Attack Roll* against a target.",
 		type: CardType.Ability,
 		recall: 1,
 		domain: Domain.Blade,
@@ -518,7 +518,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		level: 2,
 		isHomebrew: false,
 	},
-  "BONE-3-1": {
+	"BONE-3-1": {
 		id: "BONE-3-1",
 		title: "Brace",
 		description:
@@ -540,7 +540,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		level: 3,
 		isHomebrew: false,
 	},
-  "BONE-4-1": {
+	"BONE-4-1": {
 		id: "BONE-4-1",
 		title: "Boost",
 		description:
@@ -562,7 +562,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		level: 4,
 		isHomebrew: false,
 	},
-  "BONE-5-1": {
+	"BONE-5-1": {
 		id: "BONE-5-1",
 		title: "Know thy Enemy",
 		description:
@@ -582,6 +582,347 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		recall: 1,
 		domain: Domain.Bone,
 		level: 5,
+		isHomebrew: false,
+	},
+	"BONE-6-1": {
+		id: "BONE-6-1",
+		title: "Rapid Riposte",
+		description:
+			"When you successfully evade an attack from melee range, you can mark a *Stress* to automatically deal damage from an active weapon to the attacker.",
+		type: CardType.Ability,
+		recall: 0,
+		domain: Domain.Bone,
+		level: 6,
+		isHomebrew: false,
+	},
+	"BONE-6-2": {
+		id: "BONE-6-2",
+		title: "Recovery",
+		description:
+			"During a short rest, you can always choose to do one of the long rest options instead. You may spend a *Hope* to let one additional party member do the same.",
+		type: CardType.Ability,
+		recall: 1,
+		domain: Domain.Bone,
+		level: 6,
+		isHomebrew: false,
+	},
+	"BONE-7-1": {
+		id: "BONE-7-1",
+		title: "Bone Touched",
+		description:
+			"When a majority of the domain cards in your loadout are from the Bone domain:<ul><li>Increase your Agility by +1.</li><li>Before an attack roll targeting you, you can mark an Armor Slot to increase your evasion against it by half your Armor Score (rounded up).</li></ul>",
+		type: CardType.Ability,
+		recall: 2,
+		domain: Domain.Bone,
+		level: 7,
+		isHomebrew: false,
+	},
+	"BONE-7-2": {
+		id: "BONE-7-2",
+		title: "Cruel Precision",
+		description:
+			"Whenever you make a successful attack with a weapon, add either your *Finesse* or *Agility* trait to the damage.",
+		type: CardType.Ability,
+		recall: 1,
+		domain: Domain.Bone,
+		level: 7,
+		isHomebrew: false,
+	},
+	"BONE-8-1": {
+		id: "BONE-8-1",
+		title: "Breaking Blow",
+		description:
+			"When you make a successful attack, you may mark a *Stress* to make the next successful attack against that same target do an additional *2d12* damage.",
+		type: CardType.Ability,
+		recall: 3,
+		domain: Domain.Bone,
+		level: 8,
+		isHomebrew: false,
+	},
+	"BONE-8-2": {
+		id: "BONE-8-2",
+		title: "Wrangle",
+		description:
+			"Make an *Agility Roll* against all enemies close to you. You may spend a *Hope* to move any enemies you are successful against to any position within close range.\n\nUse of this ability does not contribute a character token to the action tracker.",
+		type: CardType.Ability,
+		recall: 3,
+		domain: Domain.Bone,
+		level: 8,
+		isHomebrew: false,
+	},
+	"BONE-9-1": {
+		id: "BONE-9-1",
+		title: "On the Brink",
+		description:
+			"When you have one Hit Point remaining, always add your proficiency to your Evasion.",
+		type: CardType.Ability,
+		recall: 1,
+		domain: Domain.Bone,
+		level: 9,
+		isHomebrew: false,
+	},
+	"BONE-9-2": {
+		id: "BONE-9-2",
+		title: "Splintering Strike",
+		description:
+			"Make an *Attack Roll* against all enemies in your weapon’s range. On a success against any targets, once per long rest, you may roll a number of weapon damage dice equal to double your *Proficiency* plus your *Finesse Trait*. You can distribute this damage however you wish between any enemies you are successful against.",
+		type: CardType.Ability,
+		recall: 3,
+		domain: Domain.Bone,
+		level: 9,
+		isHomebrew: false,
+	},
+	"BONE-10-1": {
+		id: "BONE-10-1",
+		title: "Deathrun",
+		description:
+			"Spend *3 Hope* to run an open path through the battlefield and make an *Attack Roll* against all enemies within weapon range along your path. Of your successful targets, choose the order in which you deal damage. For the first, roll your weapon damage at *+1 Proficiency*. Then, remove one die from your pool and deal the remaining damage to the next target in descending order until you're out of damage dice or enemies.\n\nYou cannot target the same creature more than once.",
+		type: CardType.Ability,
+		recall: 1,
+		domain: Domain.Bone,
+		level: 10,
+		isHomebrew: false,
+	},
+	"BONE-10-2": {
+		id: "BONE-10-2",
+		title: "Unflappable",
+		description:
+			"After you successfully evade an attack, you may clear a *Stress*. If you successfully evade an attack and have no *Stress* to clear, instead gain a *Hope*.",
+		type: CardType.Ability,
+		recall: 1,
+		domain: Domain.Bone,
+		level: 10,
+		isHomebrew: false,
+	},
+	"CODEX-1-1": {
+		id: "CODEX-1-1",
+		title: "Book of Ava",
+		description:
+			"*<i>Power Push</i>*: Make a *Spellcast Roll* against a target in melee range. On a success, they are blasted back to far range and take *d10* magic damage using your proficiency.\n*<i>Tava's Armor</i>*: Use an action to spend a *Hope* that gives a target you can touch *+1d6* to their Armor score the next time they mark an *Armor Slot*. You can't stack Tava's Armor on one creature.\n*<i>Ice Spikes</i>*: Make a *Spellcast Roll* to summon large ice spikes within very far range. If you use them as a weapon, on a success, deal *d6* physical damage using your proficiency.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 1,
+		isHomebrew: false,
+	},
+	"CODEX-1-2": {
+		id: "CODEX-1-2",
+		title: "Book of Illiat",
+		description:
+			"<i>*Slumber*</i>: Make a *Spellcast Roll* against a very close target. On a success, they fall into a deep sleep until they take damage or the GM spends a *Fear* to awaken them.\n<i>*Arcane Barrage*</i>: Once per short rest, use an action to spend any number of *Hope* and shoot magical projectiles that automatically strike an enemy within close range. Roll an amount of *d6* equal to the *Hope* you spent, and deal that much direct magic damage.\n<i>*Telepathy*</i>: You may open a line of mental communication with one target you can see. This connection lasts until you use this spell to connect with another creature.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 1,
+		isHomebrew: false,
+	},
+	"CODEX-1-3": {
+		id: "CODEX-1-3",
+		title: "Book of Tyfar",
+		description:
+			"<i>*Wild Flame*</i>: Make a *Spellcast Roll* against up to three enemies in melee range of you. A flame erupts from your hand, dealing *2d6* magic damage and a *Stress* to any you succeed against.\n<i>*Magic Hand*</i>: You can reach out with a magical hand the same size and strength as your own to anywhere within far range of you.\n<i>*Mysterious Mist*</i>: Use an action to spend a *Hope* and cast a temporary, thick fog that encircles a stationary area up to very close range your current location. Everyone within is Hidden to anybody outside the fog.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 1,
+		isHomebrew: false,
+	},
+  "CODEX-2-1": {
+		id: "CODEX-2-1",
+		title: "Book of Sitil",
+		description:
+			"*Adjust Appearance*: You can magically shift your appearance and clothing to avoid recognition.\n*Parallela*: Spend a *Hope* to cast this spell on yourself or one ally close to you. The next time that creature makes an attack, they can split the damage between any targets in range that the attack roll succeeds against.\n*Illusion*: Make a *Spellcast Roll (14)*. On a success, create a temporary visual illusion no larger than you within close range that will last for as long as you look at it. It holds up to scrutiny until an observer is within melee range.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 2,
+		isHomebrew: false,
+	},
+	"CODEX-2-2": {
+		id: "CODEX-2-2",
+		title: "Book of Vagras",
+		description:
+			"*Runic Lock*: You can infuse a rune upon an object you are touching that can close (a lock, chest, box, bag, etc). It will lock the object from being opened by anyone besides those you choose. The spell can be broken by somebody with magic and an hour of time to study it.\n*Arcane Door*: When you have no enemies in melee range, make a *Spellcast Roll (13)*. On a success, spend a *Hope* to disappear from where you are and reappear somewhere within far range you can see.\n*Reveal*: Make a *Spellcast Roll*. If there is anything hidden within close range the roll would succeed against, it is no longer hidden.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 2,
+		isHomebrew: false,
+	},
+  "CODEX-3-1": {
+		id: "CODEX-3-1",
+		title: "Book of Korvax",
+		description:
+			"*Levitation*: Make a *Spellcast Roll* to temporarily lift and move a target you can see up into the air within close range of where it currently is.\n*Recant*: Use an action to spend a *Hope* and make a target roll a *Reaction Roll (15)*. On a failure, they forget the last minute of your conversation.\n*Rune Circle*: Use an action to mark a *Stress* and create a temporary magical circle on the ground around you. Any creatures in melee range of this circle, or who enter melee range of this circle, take *2d12* magic damage and are pushed out at the end of their action.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 3,
+		isHomebrew: false,
+	},
+	"CODEX-3-2": {
+		id: "CODEX-3-2",
+		title: "Book of Norai",
+		description:
+			"*Mystic Tether*: Make a *Spellcast Roll* against a target within far range. On a success, they are temporarily restrained and mark a *Stress*. If you target a flying creature, this brings them to the ground before restraining them.\n*Fireball*: Make a *Spellcast Roll* against a target within very far range. On a success, you throw a sphere of fire towards them that explodes upon impact. The target and all creatures very close to them must make a *Reaction Roll (12)*. On a failure, they take *d8* magic damage using your proficiency. On a success, they take half damage (rounded up).",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 3,
+		isHomebrew: false,
+	},
+  "CODEX-4-1": {
+		id: "CODEX-4-1",
+		title: "Book of Exota",
+		description:
+			"*Counterspell*: Once per short rest, you can interrupt a spell or magical effect that is taking place to make a *Reaction Roll* using your *Spellcast* trait. On a success, the spell or effect is immediately stopped and any consequences are avoided.\n*Create Construct*: Spend a *Hope* to choose a group of objects around you and create an animated construct from them that obeys basic commands. Use a *Spellcast Roll* to command it to take action. When necessary, it shares your Evasion and Traits and its attacks deal *2d10* physical damage. You can only hold one construct at a time.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 4,
+		isHomebrew: false,
+	},
+	"CODEX-4-2": {
+		id: "CODEX-4-2",
+		title: "Book of Grynn",
+		description:
+			"*Arcane Deflection*: Once per long rest, spend a *Hope* to completely negate any incoming damage from a single attack on you or an ally very close to you.\n*Time Lock*: Target a non-living object within far range. That object stops in time and space exactly where it is for a number of minutes equal to your Level. If a creature tries to move it, make a *Spellcast Roll* against them to maintain this spell.\n*Wall of Flame*: Use an action to mark a *Stress* and create a temporary wall of magical flame between two points within far range. Anything that passes through it takes *4d10* magic damage.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 4,
+		isHomebrew: false,
+	},
+  "CODEX-5-1": {
+		id: "CODEX-5-1",
+		title: "Manifest Wall",
+		description:
+			"*Spellcast Roll (15)*. On a success, once per short rest, spend a *Hope* to create a temporary magical wall at any angle up to *50 feet* high from one point, within far range of you, to another. Any creatures or objects in its path are shunted to one side. It will dissipate at the end of your next long rest, or when you use this spell again.",
+		type: CardType.Spell,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 5,
+		isHomebrew: false,
+	},
+	"CODEX-5-2": {
+		id: "CODEX-5-2",
+		title: "Teleport",
+		description:
+			"Once per long rest, you have the ability to instantly teleport yourself and a number of others within close range up to your Level somewhere you're aware of. Choose one option below to gain additional modifiers, then make a *Spellcast Roll (16)*:<ul><li>If you know the place very well, take +5.</li><li>If you've visited the place frequently, take +3.</li><li>If you've visited the place infrequently, take +1.</li><li>If you've only been there once, no modifiers.</li><li>If you've never been there, take -4.</li></ul>On a success, you appear where you were intending to go. On a failure, you appear off course, with the range of failure signifying how far off course.",
+		type: CardType.Spell,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 5,
+		isHomebrew: false,
+	},
+  "CODEX-6-1": {
+		id: "CODEX-6-1",
+		title: "Banish",
+		description:
+			"Choose a target creature within close range. You can temporarily banish them from this realm. Use an action to roll an amount of *d20*s equal to your Spellcast Trait and tell the GM the highest result. The GM must make a *Reaction Roll* with a target number of this result.\nOn a success, they mark a *Stress*. If they fail, once per short rest, they are banished. On any rolls the PCs make with *Fear*, the GM reduces the target number by one and makes another *Reaction Roll*. If it succeeds, the creature returns from banishment.",
+		type: CardType.Spell,
+		recall: 0,
+		domain: Domain.Codex,
+		level: 6,
+		isHomebrew: false,
+	},
+	"CODEX-6-2": {
+		id: "CODEX-6-2",
+		title: "Sigil of Retribution",
+		description:
+			"Use an action to give the GM a *Fear* and mark a close enemy with a Sigil of Retribution. Every time that enemy does damage to you or your allies, put a *d8* on this card up to a maximum of your level. Any time you attack this enemy, you may choose to roll these dice and add their value to your total damage. This spell ends when you cast this spell on another creature.",
+		type: CardType.Spell,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 6,
+		isHomebrew: false,
+	},
+  "CODEX-7-1": {
+		id: "CODEX-7-1",
+		title: "Book of Homet",
+		description:
+			"*Pass Through*: Make a *Spellcast Roll (13)* on a wall or door within close range. On a success, once per short rest, you and anyone who is touching you can pass through it. The spell drops once everyone is on the other side.\n*Plane Gate*: Make a *Spellcast Roll (14)*. On a success, once per long rest, you open a gateway to a location in another dimension or plane of existence that you are aware of. This gateway lasts for *1* minute, or until you wish it to close.",
+		type: CardType.Grimoire,
+		recall: 0,
+		domain: Domain.Codex,
+		level: 7,
+		isHomebrew: false,
+	},
+	"CODEX-7-2": {
+		id: "CODEX-7-2",
+		title: "Codex Touched",
+		description:
+			"When a majority of the domain cards in your loadout are from the Codex domain:<ul><li>You can always mark a Stress to add your proficiency to a spellcast roll.</li><li>Once per short rest, you may replace this card with any card from your Vault instead without paying a Recall cost.</li></ul>",
+		type: CardType.Ability,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 7,
+		isHomebrew: false,
+	},
+  "CODEX-8-1": {
+		id: "CODEX-8-1",
+		title: "Book of Vyola",
+		description:
+			"*Memory Delve*: Make a *Spellcast Roll* against a target within far range. On a success, you get into the mind of the creature and ask a question. The GM will describe any memories they have that pertain to the answer.\n*Shared Clarity*: Once per long rest, spend *Hope* to choose two willing creatures. Whenever one of them should mark *Stress*, they can choose between the two of them who marks it. This spell will automatically end at their next rest.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 8,
+		isHomebrew: false,
+	},
+	"CODEX-8-2": {
+		id: "CODEX-8-2",
+		title: "Haven",
+		description:
+			"When you have a few minutes of calm to focus, you may spend *2 Hope* to summon your Haven, a large interdimensional home for you and your allies to take shelter in. When you do, a magical door appears somewhere within close distance of you and is only enterable by those you choose. Once inside, you can make the entrance invisible. You and anyone else inside can always exit. Once you leave, the doorway must be summoned again.\nWhen you take a rest within your own Haven, you can take an additional *Downtime Action*.",
+		type: CardType.Spell,
+		recall: 3,
+		domain: Domain.Codex,
+		level: 8,
+		isHomebrew: false,
+	},
+  "CODEX-9-1": {
+		id: "CODEX-9-1",
+		title: "Book of Ronin",
+		description:
+			"*Transform*: Make a *Spellcast Roll (15)*. On a success, immediately transform into the shape of an inanimate object you can picture in your mind no larger than twice your normal size. You can remain in this shape until you take Hit Point damage. You can move in this form, but it might draw attention.\n*Stable Portal*: Once per long rest, use an action to mark a *Stress* and choose two points within very far distance of you. A temporary portal will open up at both of those points, and any creature may use this portal to move between these two points freely. The spell will end at your next short rest.",
+		type: CardType.Grimoire,
+		recall: 4,
+		domain: Domain.Codex,
+		level: 9,
+		isHomebrew: false,
+	},
+	"CODEX-9-2": {
+		id: "CODEX-9-2",
+		title: "Disintegration Wave",
+		description:
+			"Make a *Spellcast Roll (14)*. On a success, once per long rest, the GM will tell you what enemies within far range have a difficulty of 14 or lower. You may mark a Stress for each one you wish to hit with this spell. They are immediately killed and cannot come back to life by any means.",
+		type: CardType.Spell,
+		recall: 4,
+		domain: Domain.Codex,
+		level: 9,
+		isHomebrew: false,
+	},
+  "CODEX-10-1": {
+		id: "CODEX-10-1",
+		title: "Book of Yarrow",
+		description:
+			"*Timejammer*: Make a *Spellcast Roll (18)*. On a success, time temporarily slows to a halt for everyone within far range except for you. It automatically resumes the next time you make an action roll that targets another creature or after a number of minutes equal to your *Knowledge Trait*.\n*Magic Immunity*: Spend *5 Hope* to become immune to magic damage until your next short rest.",
+		type: CardType.Grimoire,
+		recall: 2,
+		domain: Domain.Codex,
+		level: 10,
+		isHomebrew: false,
+	},
+	"CODEX-10-2": {
+		id: "CODEX-10-2",
+		title: "Transcendent Union",
+		description:
+			"Once per long rest, spend *5 Hope* to cast this spell on two or more willing creatures that wish to be bonded. Until your next short rest, any creatures that have this union with each other can always share Hit Points Slots and Stress Slots between them.",
+		type: CardType.Spell,
+		recall: 1,
+		domain: Domain.Codex,
+		level: 10,
 		isHomebrew: false,
 	},
 };
