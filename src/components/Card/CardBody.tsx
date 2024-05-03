@@ -33,11 +33,12 @@ export const CardBody: React.FC<CardBodyProps> = ({
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const { currentTarget: form } = event;
-		const newCard = cloneObj(selectedSkillCard);
+		const newCard = cloneObj(selectedSkillCard) as SkillCard;
 		const newList = cloneObj(skillCardsList);
 		const cardIndex = skillCardsList.findIndex((c) => c.id === newCard.id);
 
 		newCard.title = form.cardTitle.value;
+    newCard.imageUrl = form.cardImg.value;
 		newCard.description = form.description.value;
 
 		newList[cardIndex] = newCard;
@@ -88,6 +89,12 @@ export const CardBody: React.FC<CardBodyProps> = ({
 						name="cardTitle"
 						defaultValue={card.title.toUpperCase()}
 						required
+					/>
+
+					<Input
+            placeholder="Custom image URL"
+						name="cardImg"
+						defaultValue={card.imageUrl}
 					/>
 
 					<Input
