@@ -30,4 +30,6 @@ export const DOMAIN_INFO: Record<Domain, DomainInfo> = {
 	},
 };
 
-export const DESCRIPTION_MAX_SIZE = 460;
+export const DESCRIPTION_MAX_SIZE = 590;
+
+export const BLACK_TEXT_DOMAINS = [Domain.Bone, Domain.Splendor];
