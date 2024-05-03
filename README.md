@@ -1,30 +1,16 @@
-# React + TypeScript + Vite
+# Daggerheart Domain cards
+This is just a fan website with Domain Cards library and simple tool to add custom Domain cards for homebrew gaming.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It's free and all copyright belong to Darrington press and Daggerheart at https://daggerheart.com/
 
-Currently, two official plugins are available:
+## Features
+* All Core system Domain Cards from Beta v1.3
+* Homebrew card maker
+* Simple filter
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## TODO:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+* Improve text markdown for Splendor and Valor
+  * Test a way to auto highlight certain keywords/expressions
+* Improve overall UI
+* Add Auth and online card saving
