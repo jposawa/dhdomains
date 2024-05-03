@@ -1,9 +1,9 @@
 import React from "react";
-import { AssetType, CardType, Domain, SkillCard } from "@/shared/types";
+import { CardType, Domain, SkillCard } from "@/shared/types";
 import { Input, Modal } from "..";
 import { useRecoilState } from "recoil";
 import { skillCardsListState } from "@/shared/state";
-import { getCardAssetUrl, saveStorage } from "@/shared/utils";
+import { saveStorage } from "@/shared/utils";
 
 import styles from "./ModalNewSkillCard.module.scss";
 import { DESCRIPTION_MAX_SIZE } from "@/shared/constants";
@@ -47,7 +47,7 @@ export const ModalNewSkillCard: React.FC<ModalNewSkillCardProps> = ({
 		const card: SkillCard = {
 			id: "",
 			title: cardTitle.value,
-			imageUrl: image?.value || getCardAssetUrl(domain.value, AssetType.Image),
+			imageUrl: image?.value,
 			type: type.value,
 			domain: domain.value,
 			level: level.value,
