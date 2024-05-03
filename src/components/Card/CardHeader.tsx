@@ -19,11 +19,15 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
 		card?.imageUrl || getCardAssetUrl(card?.domain, AssetType.Image);
 
 	const headerMultiplier = React.useMemo(() => {
-		if (card?.description.length < 500) {
+		if (card?.description.length < 465) {
 			return 1;
 		}
 
-		if (card?.description.length < 600) {
+    if (card?.description.length < 480) {
+      return 0.9;
+    }
+
+		if (card?.description.length < 580) {
 			return 0.75;
 		}
 
