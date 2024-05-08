@@ -93,7 +93,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "ARCANA-3-1",
 		title: "Counterspell",
 		description:
-			"Once per *short rest*, you can interrupt a spell or magical effect that is taking place to make a *Reaction Roll* using your *Spellcast* trait. On a success, the spell or effect is immediately stopped and any consequences are avoided.",
+			"You can interrupt a spell or magical effect that is taking place to make a *Reaction Roll* using your *Spellcast* trait. On a success, the spell or effect is immediately stopped and any consequences are avoided, and this card is placed into your *Vault*.",
 		type: CardType.Spell,
 		recall: 1,
 		domain: Domain.Arcana,
@@ -478,7 +478,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "BONE-1-2",
 		title: "I see it coming",
 		description:
-			"When you are targeted by a ranged attack, mark a *Stress* to roll a *d6* and increase your *Evasion* against this attack by its value.",
+			"When you are targeted by an attack coming from beyond *melee range*, mark a *Stress* to roll a *d4* and increase your *Evasion* against this attack by its value.",
 		type: CardType.Ability,
 		recall: 1,
 		domain: Domain.Bone,
@@ -500,7 +500,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "BONE-2-1",
 		title: "Ferocity",
 		description:
-			"When you cause an enemy to mark any Hit Points, spend a *Hope* to temporarily increase your *Evasion* by the number of *Hit Points* you dealt. This bonus lasts until after the next attack that targets you.",
+			"When you cause an enemy to mark any Hit Points, spend *2 Hope* to temporarily increase your *Evasion* by the number of *Hit Points* you dealt. This bonus lasts until after the next attack that targets you.",
 		type: CardType.Ability,
 		recall: 2,
 		domain: Domain.Bone,
@@ -555,7 +555,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "BONE-4-2",
 		title: "Redirect",
 		description:
-			"When you successfully evade a ranged attack, you may roll a number of *d6* equal to your proficiency. If any roll a *6*, mark a *Stress* to redirect the attack to instead damage an enemy within very close range of you.",
+			"When you successfully evade an attack coming from beyond melee range, you may roll a number of *d6* equal to your proficiency. If any roll a *6*, mark a *Stress* to redirect the attack to instead damage an enemy within very close range of you.",
 		type: CardType.Ability,
 		recall: 1,
 		domain: Domain.Bone,
@@ -610,7 +610,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "BONE-7-1",
 		title: "Bone Touched",
 		description:
-			"When a majority of the domain cards in your loadout are from the Bone domain:<ul><li>Increase your Agility by +1.</li><li>Before an attack roll targeting you, you can mark an Armor Slot to increase your evasion against it by half your Armor Score (rounded up).</li></ul>",
+			"When a majority of the domain cards in your loadout are from the Bone domain:<ul><li>Increase your Agility by *+1*.</li><li>Once per *short rest*, take an action in combat without adding a token to the action tracker</li></ul>",
 		type: CardType.Ability,
 		recall: 2,
 		domain: Domain.Bone,
@@ -654,7 +654,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "BONE-9-1",
 		title: "On the Brink",
 		description:
-			"When you have one Hit Point remaining, always add your proficiency to your Evasion.",
+			"When you have one Hit Point remaining, all of your damage thresholds are temporarily raised by *+5*",
 		type: CardType.Ability,
 		recall: 1,
 		domain: Domain.Bone,
@@ -775,7 +775,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "CODEX-4-1",
 		title: "Book of Exota",
 		description:
-			"*Counterspell*: Once per short rest, you can interrupt a spell or magical effect that is taking place to make a *Reaction Roll* using your *Spellcast* trait. On a success, the spell or effect is immediately stopped and any consequences are avoided.\n*Create Construct*: Spend a *Hope* to choose a group of objects around you and create an animated construct from them that obeys basic commands. Use a *Spellcast Roll* to command it to take action. When necessary, it shares your Evasion and Traits and its attacks deal *2d10* physical damage. You can only hold one construct at a time.",
+			"*Counterspell*: Once per short rest, you can interrupt a spell or magical effect that is taking place to make a *Reaction Roll* using your *Spellcast* trait. On a success, the spell or effect is immediately stopped and any consequences are avoided, and this card is placed into your Vault.\n*Create Construct*: Spend a *Hope* to choose a group of objects around you and create an animated construct from them that obeys basic commands. Use a *Spellcast Roll* to command it to take action. When necessary, it shares your Evasion and Traits and its attacks deal *2d10* physical damage. You can only hold one construct at a time and it faild apart when it is hit for any amount of damage.",
 		type: CardType.Grimoire,
 		recall: 2,
 		domain: Domain.Codex,
@@ -940,7 +940,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "GRACE-1-2",
 		title: "Enrapture",
 		description:
-			"Make a *Spellcast Roll* against a close target.\nOn a success, you can temporarily keep their attention on you, narrowing their field of view and drowning out any sound but your voice. You may also mark a *Stress* on a success to deal *2 Stress* to the target.",
+			"Make a *Spellcast Roll* against a close target.\nOn a success, you can temporarily keep their attention on you, narrowing their field of view and drowning out any sound but your voice. Once per short rest, you may also mark a *Stress* on a success to deal a *Stress* to the target.",
 		type: CardType.Spell,
 		recall: 0,
 		domain: Domain.Grace,
@@ -952,7 +952,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		title: "Inspirational Words",
 		description:
 			"You can imbue your speech with enhancing power. At the beginning of a session, place a number of tokens on this card equal to your Presence score. When you recite your words, spend a token and choose an option from the list below to grant to the ally you are speaking to. If the action tracker is active, place that token on it. At the end of a session, clear all tokens.<ul><li>Clear a Stress</li><li>Heal a Hit Point.</li><li>Gain a Hope.</li>",
-		type: CardType.Spell,
+		type: CardType.Ability,
 		recall: 1,
 		domain: Domain.Grace,
 		level: 1,
@@ -974,8 +974,8 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		title: "Troublemaker",
 		description:
 			"When you taunt or provoke a target within far range, make a *Presence Roll* against them. On a success, roll a number of *d4*s equal to your proficiency. Take the highest value from those *d4*s and deal that much *Stress* to the target.",
-		type: CardType.Spell,
-		recall: 1,
+		type: CardType.Ability,
+		recall: 2,
 		domain: Domain.Grace,
 		level: 2,
 		isHomebrew: false,
@@ -1039,7 +1039,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "GRACE-5-2",
 		title: "Words of Discord",
 		description:
-			"When you whisper words of discord to an adversary in melee range, make a *Spellcast Roll (13)*. On a success, the GM immediately takes a *Stress* and makes an attack against another enemy instead of against you or your allies. If in combat, the GM spends a token from the action tracker to do so.\nOnce this attack is over, the target will realize what has happened. On the next use of Words of Discord against them, add *+5* to the *Spellcast Roll* difficulty.",
+			"When you whisper words of discord to an adversary in melee range, make a *Spellcast Roll (13)*. On a success, the target immediately takes a *Stress* and makes an attack against another enemy instead of against you or your allies. If in combat, the GM spends a token from the action tracker to do so.\nOnce this attack is over, the target will realize what has happened. On the next use of Words of Discord against them, add *+5* to the *Spellcast Roll* difficulty.",
 		type: CardType.Spell,
 		recall: 1,
 		domain: Domain.Grace,
@@ -1083,8 +1083,8 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "GRACE-7-2",
 		title: "Grace Touched",
 		description:
-			"When a majority of the domain cards in your loadout are from the Grace domain:<ul><li>You may mark an Armor Slot instead of marking *Stress*.</li><li>When you get a critical success on an Action Roll, an enemy within close range takes *2 Stress*, or an ally within close range gains *2 Hope*.</li><li>Instead of dealing damage after a successful attack, you can always instead choose to deal *1d6 Stress*.</li></ul>",
-		type: CardType.Spell,
+			"When a majority of the domain cards in your loadout are from the Grace domain:<ul><li>You may mark an Armor Slot instead of marking *Stress*.</li><li>When you get a critical success on an Action Roll, an enemy within close range takes *2 Stress*, or an ally within close range gains *2 Hope*.</li><li>When you should mark a number of hit points on a target, you may choose instead to mark that many *Stress*/li></ul>",
+		type: CardType.Ability,
 		recall: 2,
 		domain: Domain.Grace,
 		level: 7,
@@ -1127,7 +1127,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "GRACE-9-2",
 		title: "Master of the Craft",
 		description:
-			"Add *+2* to any two of your Experiences, or *+4* to any one of your Experiences. Then permanently put this card into your Vault.",
+			"Add *+2* to any two of your Experiences, or *+3* to any one of your Experiences. Then permanently put this card into your Vault.",
 		type: CardType.Ability,
 		recall: 0,
 		domain: Domain.Grace,
@@ -1281,8 +1281,8 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "MIDNIGHT-6-1",
 		title: "Dark Whispers",
 		description:
-			"You can speak into the mind of any person you've ever seen or know the true name of.\nWhen you do, you mkay also choose to mark a *Stress* to make a *Spellcast Roll* against them. On a success, you can ask one of the questions below.<ul><li>Where are they?</li><li>What are they doing?</li><li>What are they afraid of?</li><li>What do they cherish most in the world?</li></ul>",
-		type: CardType.Ability,
+			"You can speak into the mind of any person you've ever seen or know the true name of.\nWhen you do, you may also choose to mark a *Stress* to make a *Spellcast Roll* against them. On a success, you can ask one of the questions below.<ul><li>Where are they?</li><li>What are they doing?</li><li>What are they afraid of?</li><li>What do they cherish most in the world?</li></ul>",
+		type: CardType.Spell,
 		recall: 0,
 		domain: Domain.Midnight,
 		level: 6,
@@ -1391,7 +1391,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "SAGE-1-1",
 		title: "Gifted Tracker",
 		description:
-			"Make a *Spellcast Roll* to track or ask the GM one question you'd be able to learn about a specific creature or group of creatures based on signs of their passage. If you spend a *Hope* before the roll, you can double your spellcast trait as the modifier.\nIf you encounter any creatures you've tracked, your *Evasion* against them is *+2*.",
+			"Make a *Spellcast Roll* to track or ask the GM one question you'd be able to learn about a specific creature or group of creatures based on signs of their passage. If you spend a *Hope* before the roll, you can double your spellcast trait as the modifier.\nIf you encounter any creatures you've tracked, your *Evasion* against them is *+1*.",
 		type: CardType.Ability,
 		recall: 0,
 		domain: Domain.Sage,
@@ -1468,7 +1468,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "SAGE-4-1",
 		title: "Death Grip",
 		description:
-			"Choose an option below and make a *Spellcast Roll* against the target. On a success, vines reach out from your hands, causing the chosen effect and making them restrained.<ul><li>Pull the target into melee range of you or pull yourself into melee range with it.</li><li>Constrict the target to deal *2 Stress*.</li><li>Any enemies between you and the target must make a Reaction Roll (13) or be hit by vines, dealing 3d6 physical damage.</li></ul>",
+			"Choose an option below and make a *Spellcast Roll* against the target in close range. On a success, vines reach out from your hands, causing the chosen effect and making them <i>Restrained</i>.<ul><li>Pull the target into melee range of you or pull yourself into melee range with it.</li><li>Constrict the target to deal *2 Stress*.</li><li>Any enemies between you and the target must make a Reaction Roll (13) or be hit by vines, dealing 3d6 physical damage.</li></ul>",
 		type: CardType.Spell,
 		recall: 1,
 		domain: Domain.Sage,
@@ -1501,7 +1501,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "SAGE-5-2",
 		title: "Wild Fortress",
 		description:
-			"Make a *Spellcast Roll (13)* to grow a natural barricade in the shape of a dome for you and up to one ally to hide within. You immediately become hidden as long as you stay within, but may reveal yourself out the top of the dome to make ranged attacks. The dome has the damage thresholds below and lasts until it takes three Hit Points. Place tokens on this card to represent marking Hit Points.\n\n*Minor (Mark 1) 1* | *Major (Mark 2) 15* | *Severe (Mark 3) 30*",
+			"Make a *Spellcast Roll (13)* to grow a natural barricade in the shape of a dome for you and up to one ally to hide within. You immediately become hidden as long as you stay within, but may reveal yourself out the top of the dome to make ranged attacks. The dome has the damage thresholds below and lasts until it takes three Hit Points. Place tokens on this card to represent marking Hit Points.\n\n*Minor 1* | *Major 15* | *Severe 30*",
 		type: CardType.Spell,
 		recall: 1,
 		domain: Domain.Sage,
@@ -1532,9 +1532,9 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 	},
 	"SAGE-7-1": {
 		id: "SAGE-7-1",
-		title: "Monster of Nature",
+		title: "Wild Surge",
 		description:
-			"Once per long rest, mark a *Stress* to channel the natural world around you and use it to transform into something monstrous. Describe how your appearance changes, then place a *d6* on this card at a value of *6*.\nWhile the Monster of Nature die is active, it adds its value to every *Action Roll* you make. After you add its value to a roll, reduce it by *1*. When the die's value reaches *0* or you take a rest, this form drops and you must mark an additional *Stress*.",
+			"Once per long rest, mark a *Stress* to channel the natural world around you and use it to enhance yourself. Describe how your appearance changes, then place a *d6* on this card at a value of *6*.\nWhile the Wild Surge no die is active, it adds its value to every *Action Roll* you make. After you add its value to a roll, reduce it by *1*. When the die's value reaches *0* or you take a rest, this form drops and you must mark an additional *Stress*.",
 		type: CardType.Spell,
 		recall: 2,
 		domain: Domain.Sage,
@@ -1546,7 +1546,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		title: "Sage Touched",
 		description:
 			"When a majority of the domain cards in your loadout are from the Sage domain:<ul><li>When you are in a natural environment, you always take *+1* to your *Spellcast Rolls*.</li><li>Once per short rest, before you roll, treat your *Agility* or *Instinct* Trait as though it were double its current value.</li></ul>",
-		type: CardType.Spell,
+		type: CardType.Ability,
 		recall: 2,
 		domain: Domain.Sage,
 		level: 7,
@@ -1611,7 +1611,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		id: "SAGE-10-2",
 		title: "Tempest",
 		description:
-			"Choose one of the following tempests and make a *Spellcast Roll* against all targets in far range. Any you are successful against experience its effects until the GM spends a *Fear* to end this spell:\n<i>Blizzard</i> - Immediately deal *2d20* magic damage and make them vulnerable.\n<i>Hurricane</i> - Immediately deal *3d10* magic damage. Choose a direction the wind is blowing. Targets can't move against the wind.\n<i>Sandstorm</i> - Immediately deal *5d6* magic damage and any ranged attacks are now at disadvantage.",
+			"Choose one of the following tempests and make a *Spellcast Roll* against all targets in far range. Any you are successful against experience its effects until the GM spends a *Fear* to end this spell:\n<i>Blizzard</i> - Deal *2d20* magic damage and make them vulnerable.\n<i>Hurricane</i> - Immediately deal *3d10* magic damage. Choose a direction the wind is blowing. Targets can't move against the wind.\n<i>Sandstorm</i> - Deal *5d6* magic damage and attacks beyond melee range are now at disadvantage.",
 		type: CardType.Spell,
 		recall: 2,
 		domain: Domain.Sage,
@@ -1645,7 +1645,7 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 		title: "Reassurance",
 		description:
 			"Once per short rest, after an ally attempts an *Action Roll*, but before the consequences take place, you may offer assistance or words of support. When you do, they may reroll their dice. They must accept the result of this new roll.",
-		type: CardType.Spell,
+		type: CardType.Ability,
 		recall: 0,
 		domain: Domain.Splendor,
 		level: 1,
@@ -1763,9 +1763,9 @@ export const SYSTEM_SKILL_CARDS: Record<string, SkillCard> = {
 	},
 	"SPLENDOR-7-1": {
 		id: "SPLENDOR-7-1",
-		title: "Fountain of Life",
+		title: "Healing Strike",
 		description:
-			"Whenever you do damage to an enemy, you may spend a Hope to heal a single Hit Point on an ally within close range of you.",
+			"Whenever you do damage to an enemy, you may spend a *Hope* to heal a single Hit Point on an ally within close range of you.",
 		type: CardType.Spell,
 		recall: 1,
 		domain: Domain.Splendor,
