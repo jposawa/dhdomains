@@ -25,6 +25,25 @@
 	--colorBackground: var(--colorWhite);
 }
 
+.logoutContainer {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  z-index: 90;
+}
+
+.btnLogout {
+  padding: 0.5rem;
+  background: transparent;
+  color: gold;
+  transition: all 200ms linear;
+
+  &:hover {
+    background: gold;
+    color: var(--colorText);
+  }
+}
+
 @media screen and (min-width: $desktopBreakpoint) {
 	.appContainer {
 		flex-direction: row;
