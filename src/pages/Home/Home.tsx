@@ -5,7 +5,7 @@ import { ModalNewSkillCard } from "@/components";
 import styles from "./Home.module.scss";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { fbAppState, fbUserState, isAuthLoadingState } from "@/shared/state";
-import { GoogleAuthProvider, getAuth, signInWithRedirect } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { LoadingOutlined } from "@ant-design/icons";
 
 export const Home = () => {
@@ -19,7 +19,7 @@ export const Home = () => {
 			const provider = new GoogleAuthProvider();
 			const auth = getAuth();
 
-			signInWithRedirect(auth, provider);
+			signInWithPopup(auth, provider);
 		}
 	}, [fbApp]);
 

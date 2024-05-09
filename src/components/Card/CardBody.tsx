@@ -28,8 +28,8 @@ export const CardBody: React.FC<CardBodyProps> = ({
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+
 		if (!isLoading) {
-			console.log("calling here");
 			const { currentTarget: form } = event;
 			const newCard = cloneObj(selectedSkillCard) as SkillCard;
 
