@@ -4,16 +4,16 @@ import type { SelectProps } from "antd";
 import {
 	filterCardByDomain,
 	filterCardByHomebrew,
-	loadStorage,
 	sortSkillCard,
 } from "@/shared/utils";
 import { Card, ModalCardFocus } from "@/components";
 import { useRecoilState } from "recoil";
 import { skillCardsListState } from "@/shared/state";
-import { SYSTEM_SKILL_CARDS } from "@/shared/constants";
 
 import styles from "./SkillCardManager.module.scss";
 import { Domain, SkillCard } from "@/shared/types";
+import { useDomainCard } from "@/shared/hooks";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const domainOptions: SelectProps["options"] = [];
 
@@ -51,8 +51,8 @@ const homebrewOptions: SelectProps["options"] = [
 ];
 
 export const SkillCardManager = () => {
-	const [skillCardsList, setSkillCardsList] =
-		useRecoilState(skillCardsListState);
+	const { fetchCards, isLoading } = useDomainCard();
+	const [skillCardsList] = useRecoilState(skillCardsListState);
 	const [activeDomains, setActiveDomains] = React.useState<Domain[]>([]);
 	const [activeSort, setActiveSort] = React.useState<keyof SkillCard>("level");
 	const [targetHomebrewStatus, setTargetHomebrewStatus] = React.useState<
@@ -76,16 +76,14 @@ export const SkillCardManager = () => {
 	};
 
 	React.useEffect(() => {
-		setSkillCardsList(loadStorage("skillCardsList", { needParse: true }) || []);
+		if (!isLoading && skillCardsList.length === 0) {
+			fetchCards();
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isLoading, skillCardsList]);
 
 	const formattedSkillCards = React.useMemo(() => {
-		const unifiedList = [
-			...Object.values(SYSTEM_SKILL_CARDS),
-			...skillCardsList,
-		];
-		let filterredList = filterCardByDomain(unifiedList, activeDomains);
+		let filterredList = filterCardByDomain(skillCardsList, activeDomains);
 
 		if (typeof targetHomebrewStatus === "string") {
 			filterredList = filterCardByHomebrew(
@@ -136,7 +134,11 @@ export const SkillCardManager = () => {
 
 			<section className={styles.cardsContainer}>
 				{!formattedSkillCards.length ? (
-					<h4>No cards in this list</h4>
+					isLoading ? (
+						<LoadingOutlined />
+					) : (
+						<h4>No cards in this list</h4>
+					)
 				) : (
 					formattedSkillCards.map((card, index) => (
 						<Card key={index} card={card} hoverEffect preventEdit />

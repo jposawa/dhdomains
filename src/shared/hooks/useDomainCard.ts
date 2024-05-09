@@ -1,7 +1,7 @@
 import React from "react";
 import { SkillCard } from "../types";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { fbUserState, skillCardsListState } from "../state";
+import { fbAppState, fbUserState, skillCardsListState } from "../state";
 import { getDataRef } from "../services";
 import { onValue, update } from "firebase/database";
 import { cloneObj } from "../utils";
@@ -9,6 +9,7 @@ import { cloneObj } from "../utils";
 const BASE_URL = "domains";
 
 export const useDomainCard = () => {
+	const fbApp = useRecoilValue(fbAppState);
 	const fbUser = useRecoilValue(fbUserState);
 	const [isLoading, setIsLoading] = React.useState(false);
 	const [coreCardsObj, setCoreCardsObj] = React.useState<
@@ -24,7 +25,7 @@ export const useDomainCard = () => {
 			setStateCallback: (param1: Record<string, SkillCard>) => void,
 			cardListType = "core"
 		) => {
-			if (!isLoading) {
+			if (!isLoading && fbApp) {
 				setIsLoading(true);
 
 				const fbRef = getDataRef(`${BASE_URL}/${cardListType}`);
@@ -37,7 +38,7 @@ export const useDomainCard = () => {
 				});
 			}
 		},
-		[isLoading]
+		[fbApp, isLoading]
 	);
 
 	const fetchCards = React.useCallback(
@@ -58,7 +59,7 @@ export const useDomainCard = () => {
 			let success = true;
 			let fetched = false;
 
-			if (!isLoading && fbUser?.uid) {
+			if (fbApp && !isLoading && fbUser?.uid) {
 				setIsLoading(true);
 				const cardType = newCard.isHomebrew ? fbUser.uid : "core";
 				const fbRef = getDataRef(`${BASE_URL}/${cardType}`);
@@ -85,7 +86,7 @@ export const useDomainCard = () => {
 
 			return { success, fetched };
 		},
-		[coreCardsObj, customCardsObj, fbUser?.uid, isLoading]
+		[coreCardsObj, customCardsObj, fbApp, fbUser?.uid, isLoading]
 	);
 
 	React.useEffect(() => {
