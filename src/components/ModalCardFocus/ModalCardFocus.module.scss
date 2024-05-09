@@ -11,6 +11,7 @@
   padding: 0.5rem 0.1rem;
   top: 100%;
   left: 0;
+  gap: 1.5rem;
 
   button {
     --size: 3rem;
@@ -21,5 +22,10 @@
     font-size: 1.5rem;
     background: #4e2862;
     color: #eee;
+  }
+
+  .btnRemove {
+    background: orangered;
+    color: #222;
   }
 }

@@ -56,7 +56,13 @@ export const useDomainCard = () => {
 	);
 
 	const updateCard = React.useCallback(
-		(newCard: SkillCard) => {
+		(
+			newCard: SkillCard,
+			options: {
+				isDeletion?: boolean;
+			} = {}
+		) => {
+			const { isDeletion = false } = options;
 			let success = true;
 			let fetched = false;
 
@@ -66,11 +72,11 @@ export const useDomainCard = () => {
 				const fbRef = getDataRef(`${BASE_URL}/${cardType}`);
 				fetched = true;
 				const { id: cardId } = newCard;
-				const updatedObj: Record<string, SkillCard> = newCard.isHomebrew
+				const updatedObj: Record<string, SkillCard | null> = newCard.isHomebrew
 					? cloneObj(customCardsObj || {})
 					: cloneObj(coreCardsObj || {});
 
-				updatedObj[cardId] = newCard;
+				updatedObj[cardId] = isDeletion ? null : newCard;
 
 				update(fbRef, updatedObj)
 					.then()
@@ -90,6 +96,22 @@ export const useDomainCard = () => {
 		[coreCardsObj, customCardsObj, fbApp, fbUser?.uid, isLoading]
 	);
 
+	const removeCard = React.useCallback(
+		(card: SkillCard, userId?: string) => {
+			if (!isLoading) {
+				setIsLoading(true);
+				if (!userId && fbUser) {
+					userId = fbUser.uid;
+				}
+
+				if (fbApp && card && userId) {
+					return updateCard(card, { isDeletion: true });
+				}
+			}
+		},
+		[fbApp, fbUser, isLoading, updateCard]
+	);
+
 	React.useEffect(() => {
 		const coreCardsArray = Object.values(coreCardsObj);
 		const customCardsArray = Object.values(customCardsObj);
@@ -105,5 +127,5 @@ export const useDomainCard = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [coreCardsObj, customCardsObj]);
 
-	return { isLoading, fetchCards, updateCard };
+	return { isLoading, fetchCards, updateCard, removeCard };
 };
