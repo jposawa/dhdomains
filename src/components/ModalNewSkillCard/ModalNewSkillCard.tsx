@@ -3,10 +3,10 @@ import { CardType, Domain, SkillCard } from "@/shared/types";
 import { Input, Modal } from "..";
 import { useRecoilState } from "recoil";
 import { skillCardsListState } from "@/shared/state";
-import { saveStorage } from "@/shared/utils";
 
 import styles from "./ModalNewSkillCard.module.scss";
 import { DESCRIPTION_MAX_SIZE } from "@/shared/constants";
+import { useDomainCard } from "@/shared/hooks";
 
 export type ModalNewSkillCardProps = {
 	isOpen: boolean;
@@ -17,8 +17,8 @@ export const ModalNewSkillCard: React.FC<ModalNewSkillCardProps> = ({
 	isOpen,
 	setIsOpen,
 }) => {
-	const [skillCardsList, setSkillCardsList] =
-		useRecoilState(skillCardsListState);
+	const { isLoading, updateCard } = useDomainCard();
+	const [skillCardsList] = useRecoilState(skillCardsListState);
 	const handleClose = () => {
 		setIsOpen(false);
 	};
@@ -41,32 +41,29 @@ export const ModalNewSkillCard: React.FC<ModalNewSkillCardProps> = ({
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const { currentTarget: form } = event;
-		const { cardTitle, image, type, level, recall, description, domain } = form;
+		if (!isLoading) {
+			const { currentTarget: form } = event;
+			const { cardTitle, image, type, level, recall, description, domain } =
+				form;
 
-		const card: SkillCard = {
-			id: "",
-			title: cardTitle.value,
-			imageUrl: image?.value,
-			type: type.value,
-			domain: domain.value,
-			level: level.value,
-			recall: recall.value,
-			description: description.value,
-			isHomebrew: true,
-		};
+			const card: SkillCard = {
+				id: "",
+				title: cardTitle.value,
+				imageUrl: image?.value,
+				type: type.value,
+				domain: domain.value,
+				level: level.value,
+				recall: recall.value,
+				description: description.value,
+				isHomebrew: true,
+			};
 
-		card.id = getNewCardId(card);
+			card.id = getNewCardId(card);
 
-		const newList = [...skillCardsList, card] as SkillCard[];
+			updateCard(card);
 
-		saveStorage("skillCardsList", newList, {
-			needParse: true,
-		});
-
-		setSkillCardsList(newList);
-
-		handleClose();
+			handleClose();
+		}
 	};
 	return (
 		<Modal

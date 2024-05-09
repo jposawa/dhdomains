@@ -31,6 +31,12 @@
 	label {
 		width: 100%;
 	}
+
+  :global(.ant-select-disabled) {
+    span {
+      color: #eee;
+    }
+  }
 }
 
 .domainFilter {

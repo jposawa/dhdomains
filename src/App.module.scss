@@ -11,18 +11,38 @@
 }
 
 .pageContainer {
-  position: relative;
+	position: relative;
 	width: 100%;
 	height: 100%;
-  // border: 1px solid red;
-  overflow: auto;
-  background: rgb(50, 50, 50);
-  color: #eee;
+	// border: 1px solid red;
+	overflow: auto;
+	background: rgb(50, 50, 50);
+	color: #eee;
 }
 
 .light {
 	--colorText: var(--colorBlack);
 	--colorBackground: var(--colorWhite);
+}
+
+.logoutContainer {
+	position: fixed;
+	top: 2%;
+	right: 1%;
+	z-index: 90;
+}
+
+.btnLogout {
+	padding: 0.5rem;
+	font-size: 1rem;
+	background: transparent;
+	color: gold;
+	transition: all 200ms linear;
+
+	&:hover {
+		background: gold;
+		color: var(--colorText);
+	}
 }
 
 @media screen and (min-width: $desktopBreakpoint) {

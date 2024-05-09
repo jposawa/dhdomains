@@ -4,16 +4,16 @@ import type { SelectProps } from "antd";
 import {
 	filterCardByDomain,
 	filterCardByHomebrew,
-	loadStorage,
 	sortSkillCard,
 } from "@/shared/utils";
 import { Card, ModalCardFocus } from "@/components";
-import { useRecoilState } from "recoil";
-import { skillCardsListState } from "@/shared/state";
-import { SYSTEM_SKILL_CARDS } from "@/shared/constants";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { fbUserState, skillCardsListState } from "@/shared/state";
 
 import styles from "./SkillCardManager.module.scss";
 import { Domain, SkillCard } from "@/shared/types";
+import { useDomainCard } from "@/shared/hooks";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const domainOptions: SelectProps["options"] = [];
 
@@ -35,24 +35,10 @@ const sortOptions: SelectProps["options"] = [
 	},
 ];
 
-const homebrewOptions: SelectProps["options"] = [
-	{
-		label: "Both types",
-		value: null,
-	},
-	{
-		label: "Core only",
-		value: "",
-	},
-	{
-		label: "Homebrew",
-		value: "homebrew",
-	},
-];
-
 export const SkillCardManager = () => {
-	const [skillCardsList, setSkillCardsList] =
-		useRecoilState(skillCardsListState);
+	const fbUser = useRecoilValue(fbUserState);
+	const { fetchCards, isLoading } = useDomainCard();
+	const [skillCardsList] = useRecoilState(skillCardsListState);
 	const [activeDomains, setActiveDomains] = React.useState<Domain[]>([]);
 	const [activeSort, setActiveSort] = React.useState<keyof SkillCard>("level");
 	const [targetHomebrewStatus, setTargetHomebrewStatus] = React.useState<
@@ -75,17 +61,41 @@ export const SkillCardManager = () => {
 		setTargetHomebrewStatus(value);
 	};
 
+	const homebrewOptions = React.useMemo((): SelectProps["options"] => {
+		if (!fbUser) {
+			setTargetHomebrewStatus("");
+			return [
+				{
+					label: "Core only",
+					value: "",
+				},
+			];
+		}
+		setTargetHomebrewStatus(null);
+		return [
+			{
+				label: "Both types",
+				value: null,
+			},
+			{
+				label: "Core only",
+				value: "",
+			},
+			{
+				label: "Homebrew",
+				value: "homebrew",
+			},
+		];
+	}, [fbUser]);
+
 	React.useEffect(() => {
-		setSkillCardsList(loadStorage("skillCardsList", { needParse: true }) || []);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		if (!isLoading && !skillCardsList?.length) {
+			fetchCards();
+		}
+	}, [fetchCards, isLoading, skillCardsList]);
 
 	const formattedSkillCards = React.useMemo(() => {
-		const unifiedList = [
-			...Object.values(SYSTEM_SKILL_CARDS),
-			...skillCardsList,
-		];
-		let filterredList = filterCardByDomain(unifiedList, activeDomains);
+		let filterredList = filterCardByDomain(skillCardsList, activeDomains);
 
 		if (typeof targetHomebrewStatus === "string") {
 			filterredList = filterCardByHomebrew(
@@ -125,9 +135,10 @@ export const SkillCardManager = () => {
 				<label>
 					<span>Card type: </span>
 					<Select
-						defaultValue={targetHomebrewStatus}
+						value={targetHomebrewStatus}
 						options={homebrewOptions}
 						onChange={handleHomebrewChange}
+						disabled={!fbUser}
 					/>
 				</label>
 			</div>
@@ -136,7 +147,11 @@ export const SkillCardManager = () => {
 
 			<section className={styles.cardsContainer}>
 				{!formattedSkillCards.length ? (
-					<h4>No cards in this list</h4>
+					isLoading ? (
+						<LoadingOutlined />
+					) : (
+						<h4>No cards in this list</h4>
+					)
 				) : (
 					formattedSkillCards.map((card, index) => (
 						<Card key={index} card={card} hoverEffect preventEdit />
