@@ -1,17 +1,14 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import { Input } from "../";
-import {
-	editModeState,
-	selectedSkillCardState,
-	skillCardsListState,
-} from "@/shared/state";
+import { editModeState, selectedSkillCardState } from "@/shared/state";
 import { SkillCard } from "@/shared/types";
 
 import styles from "./CardBody.module.scss";
 import { CheckOutlined } from "@ant-design/icons";
-import { cloneObj, saveStorage } from "@/shared/utils";
+import { cloneObj } from "@/shared/utils";
 import { DESCRIPTION_MAX_SIZE } from "@/shared/constants";
+import { useDomainCard } from "@/shared/hooks";
 
 export type CardBodyProps = {
 	card: SkillCard;
@@ -22,33 +19,28 @@ export const CardBody: React.FC<CardBodyProps> = ({
 	card,
 	preventEdit = false,
 }) => {
+	const { isLoading, updateCard } = useDomainCard();
 	const [selectedSkillCard, setSelectedSkillCard] = useRecoilState(
 		selectedSkillCardState
 	);
 	const [isEditMode, setIsEditMode] = useRecoilState(editModeState);
-	const [skillCardsList, setSkillCardsList] =
-		useRecoilState(skillCardsListState);
 	const [descriptionLength, setDescriptionLength] = React.useState(0);
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const { currentTarget: form } = event;
-		const newCard = cloneObj(selectedSkillCard) as SkillCard;
-		const newList = cloneObj(skillCardsList);
-		const cardIndex = skillCardsList.findIndex((c) => c.id === newCard.id);
+		if (!isLoading) {
+			console.log("calling here");
+			const { currentTarget: form } = event;
+			const newCard = cloneObj(selectedSkillCard) as SkillCard;
 
-		newCard.title = form.cardTitle.value;
-    newCard.imageUrl = form.cardImg.value;
-		newCard.description = form.description.value;
+			newCard.title = form.cardTitle.value;
+			newCard.imageUrl = form.cardImg.value;
+			newCard.description = form.description.value;
 
-		newList[cardIndex] = newCard;
-		saveStorage("skillCardsList", newList, {
-			needParse: true,
-		});
-
-		setSkillCardsList(newList);
-		setSelectedSkillCard(newCard);
-		setIsEditMode(false);
+			updateCard(newCard);
+			setSelectedSkillCard(newCard);
+			setIsEditMode(false);
+		}
 	};
 
 	const handleReset = () => {
@@ -92,7 +84,7 @@ export const CardBody: React.FC<CardBodyProps> = ({
 					/>
 
 					<Input
-            placeholder="Custom image URL"
+						placeholder="Custom image URL"
 						name="cardImg"
 						defaultValue={card.imageUrl}
 					/>

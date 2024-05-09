@@ -1,10 +1,10 @@
 import React from "react";
 import { SkillCard } from "../types";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { fbAppState, fbUserState, skillCardsListState } from "../state";
 import { getDataRef } from "../services";
 import { onValue, update } from "firebase/database";
-import { cloneObj } from "../utils";
+import { cloneObj, isEqual } from "../utils";
 
 const BASE_URL = "domains";
 
@@ -18,7 +18,8 @@ export const useDomainCard = () => {
 	const [customCardsObj, setCustomCardsObj] = React.useState<
 		Record<string, SkillCard>
 	>({});
-	const setSkillCardsList = useSetRecoilState(skillCardsListState);
+	const [skillCardsList, setSkillCardsList] =
+		useRecoilState(skillCardsListState);
 
 	const getCardsList = React.useCallback(
 		(
@@ -93,7 +94,14 @@ export const useDomainCard = () => {
 		const coreCardsArray = Object.values(coreCardsObj);
 		const customCardsArray = Object.values(customCardsObj);
 
-		setSkillCardsList([...coreCardsArray, ...customCardsArray]);
+		const unifiedList = [...coreCardsArray, ...customCardsArray];
+
+		if (
+			(!skillCardsList.length || !isEqual(unifiedList, skillCardsList)) &&
+			unifiedList.length > 0
+		) {
+			setSkillCardsList(unifiedList);
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [coreCardsObj, customCardsObj]);
 

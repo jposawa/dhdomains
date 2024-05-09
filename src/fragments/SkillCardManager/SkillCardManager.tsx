@@ -76,11 +76,10 @@ export const SkillCardManager = () => {
 	};
 
 	React.useEffect(() => {
-		if (!isLoading && skillCardsList.length === 0) {
+		if (!isLoading && !skillCardsList?.length) {
 			fetchCards();
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isLoading, skillCardsList]);
+	}, [fetchCards, isLoading, skillCardsList]);
 
 	const formattedSkillCards = React.useMemo(() => {
 		let filterredList = filterCardByDomain(skillCardsList, activeDomains);
