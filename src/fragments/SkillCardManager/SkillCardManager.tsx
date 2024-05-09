@@ -7,8 +7,8 @@ import {
 	sortSkillCard,
 } from "@/shared/utils";
 import { Card, ModalCardFocus } from "@/components";
-import { useRecoilState } from "recoil";
-import { skillCardsListState } from "@/shared/state";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { fbUserState, skillCardsListState } from "@/shared/state";
 
 import styles from "./SkillCardManager.module.scss";
 import { Domain, SkillCard } from "@/shared/types";
@@ -35,22 +35,8 @@ const sortOptions: SelectProps["options"] = [
 	},
 ];
 
-const homebrewOptions: SelectProps["options"] = [
-	{
-		label: "Both types",
-		value: null,
-	},
-	{
-		label: "Core only",
-		value: "",
-	},
-	{
-		label: "Homebrew",
-		value: "homebrew",
-	},
-];
-
 export const SkillCardManager = () => {
+	const fbUser = useRecoilValue(fbUserState);
 	const { fetchCards, isLoading } = useDomainCard();
 	const [skillCardsList] = useRecoilState(skillCardsListState);
 	const [activeDomains, setActiveDomains] = React.useState<Domain[]>([]);
@@ -74,6 +60,33 @@ export const SkillCardManager = () => {
 
 		setTargetHomebrewStatus(value);
 	};
+
+	const homebrewOptions = React.useMemo((): SelectProps["options"] => {
+		if (!fbUser) {
+			setTargetHomebrewStatus("");
+			return [
+				{
+					label: "Core only",
+					value: "",
+				},
+			];
+		}
+		setTargetHomebrewStatus(null);
+		return [
+			{
+				label: "Both types",
+				value: null,
+			},
+			{
+				label: "Core only",
+				value: "",
+			},
+			{
+				label: "Homebrew",
+				value: "homebrew",
+			},
+		];
+	}, [fbUser]);
 
 	React.useEffect(() => {
 		if (!isLoading && !skillCardsList?.length) {
@@ -122,9 +135,10 @@ export const SkillCardManager = () => {
 				<label>
 					<span>Card type: </span>
 					<Select
-						defaultValue={targetHomebrewStatus}
+						value={targetHomebrewStatus}
 						options={homebrewOptions}
 						onChange={handleHomebrewChange}
+						disabled={!fbUser}
 					/>
 				</label>
 			</div>
