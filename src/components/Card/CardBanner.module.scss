@@ -1,0 +1,36 @@
+.cardBannerContainer {
+  --bannerWidth: var(--width, 3.5rem);
+
+  position: fixed;
+  border: 1px solid cyan;
+  width: var(--bannerWidth);
+  height: calc(var(--bannerWidth) * 2);
+  right: 35.6vw;
+  z-index: 1000;
+}
+
+.coreBanner {
+  --coreWidth: calc(var(--bannerWidth) * 0.68);
+
+  border: 1px solid purple;
+  position: absolute;
+  width: var(--coreWidth);
+  height: calc(var(--coreWidth) * 2.6);
+  left: calc((100% - var(--coreWidth)) / 2);
+  display: flex;
+
+  &:after {
+    border-bottom: 2rem;
+    
+  }
+}
+
+// .halfCore {
+//   position: relative;
+//   width: 50%;
+//   height: 100%;
+//   border: 1px solid red;
+//   border-top: none;
+//   border-right: none;
+//   border-end-end-radius: 30%;
+// }

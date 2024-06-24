@@ -6,7 +6,7 @@ import {
 	filterCardByHomebrew,
 	sortSkillCard,
 } from "@/shared/utils";
-import { Card, ModalCardFocus } from "@/components";
+import { Card, CardBanner, ModalCardFocus } from "@/components";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { fbUserState, skillCardsListState } from "@/shared/state";
 
@@ -144,6 +144,8 @@ export const SkillCardManager = () => {
 			</div>
 
 			<h2 className={styles.title}>Cards list</h2>
+
+      <CardBanner />
 
 			<section className={styles.cardsContainer}>
 				{!formattedSkillCards.length ? (
